@@ -19,3 +19,4 @@ EXPOSE 3500
 COPY --from=backend-builder /app .
 # Define the default command to run the application
 CMD ["node", "index.js"]
+
