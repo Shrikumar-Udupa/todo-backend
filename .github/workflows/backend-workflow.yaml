@@ -64,12 +64,10 @@ jobs:
         timeout: 10m  # Increased timeout for longer scans
         scan-ref: '.'  # Ensures scanning the current working directory
 
-
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: 'trivy-results.sarif'
-
 
   docker_image_scan:
     needs: build_test
