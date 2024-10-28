@@ -52,14 +52,22 @@ jobs:
           name: Depcheck report
           path: ${{github.workspace}}/reports
 
+
     - name: Run Trivy vulnerability scanner in repo mode (FS Scan)
-      uses: aquasecurity/trivy-action@0.20.0
+      uses: aquasecurity/trivy-action@latest
       with:
         scan-type: 'fs'
         ignore-unfixed: true
         format: 'sarif'
         output: 'trivy-results.sarif'
         severity: 'CRITICAL'
+        timeout: 10m  # Increased timeout for longer scans
+        vuln-type: 'os,library'  # Ensures scanning both OS and library vulnerabilities
+        scan-ref: '.'  # Ensures scanning the current working directory
+
+  
+
+
 
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v2
