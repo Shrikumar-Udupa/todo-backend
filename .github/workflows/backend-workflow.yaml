@@ -62,11 +62,7 @@ jobs:
         output: 'trivy-results.sarif'
         severity: 'CRITICAL'
         timeout: 10m  # Increased timeout for longer scans
-        vuln-type: 'os,library'  # Ensures scanning both OS and library vulnerabilities
         scan-ref: '.'  # Ensures scanning the current working directory
-
-  
-
 
 
     - name: Upload Trivy scan results to GitHub Security tab
@@ -86,7 +82,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-# Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
 
     - name: Configure AWS credentials
