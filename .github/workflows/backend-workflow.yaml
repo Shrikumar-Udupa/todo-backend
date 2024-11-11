@@ -111,5 +111,5 @@ jobs:
       with:
         image-ref: 825765396418.dkr.ecr.us-east-1.amazonaws.com/todo-backend:latest
         severity: HIGH,CRITICAL
-        format: table # You can use other formats like 'json' or 'sarif'
+        format: table 
         ignore-unfixed: true # Optional: ignores vulnerabilities without a fix        
