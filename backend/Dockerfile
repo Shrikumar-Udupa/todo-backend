@@ -1,5 +1,5 @@
 # ------------------- Stage 1: Build Stage ------------------------------
-FROM node:21 AS backend-builder
+FROM node AS backend-builder
 # Set the working directory to /app
 WORKDIR /app
 # Copy the package.json and package-lock.json for dependency installation
@@ -10,7 +10,7 @@ RUN npm install
 COPY . .
 
 # ------------------- Stage 2: Final Stage ------------------------------
-FROM node:21-slim
+FROM node:current-slim
 # Set the working directory to /app
 WORKDIR /app
 # Expose port 3500 for the Node.js application
