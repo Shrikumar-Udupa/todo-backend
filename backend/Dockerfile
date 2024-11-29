@@ -9,7 +9,6 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-
 # ------------------- Stage 2: Final Stage ------------------------------
 FROM node:current-slim
 # Set the working directory to /app
